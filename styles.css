@@ -198,6 +198,13 @@ h1 {
     border-radius: 12px;
 }
 
+.version {
+    color: rgba(255, 255, 255, 0.5);  /* Semi-transparent white */
+    font-size: 12px;
+    margin-top: -2.5rem;  /* Pull it up closer to title */
+    margin-bottom: 2rem;  /* Maintain spacing to wheel */
+}
+
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 36px;
@@ -232,5 +239,9 @@ h1 {
     .winning-selection {
         font-size: 60px;
         min-width: 250px;
+    }
+
+    .version {
+        margin-top: -2rem;  /* Slightly less space on mobile */
     }
 }
