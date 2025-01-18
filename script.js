@@ -20,8 +20,18 @@ class WheelSpinner {
     }
 
     init() {
+        this.resizeCanvas();
         this.drawWheel();
         this.spinButton.addEventListener('click', () => this.spin());
+        window.addEventListener('resize', () => this.resizeCanvas());
+    }
+
+    resizeCanvas() {
+        const container = this.canvas.parentElement;
+        const size = Math.min(container.offsetWidth, 400);
+        this.canvas.width = size;
+        this.canvas.height = size;
+        this.drawWheel();
     }
 
     drawWheel() {

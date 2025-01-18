@@ -43,14 +43,19 @@ h1 {
     margin: 2rem 0;
     position: relative;
     padding-top: 25px;
+    width: min(90vw, 400px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #wheel {
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));  /* Initial yellow glow */
-    transition: filter 0.5s;  /* Smooth transition for glow changes */
-    --hover-glow-color: rgba(255, 255, 0, 0.7);  /* Default yellow */
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
+    transition: filter 0.5s;
+    --hover-glow-color: rgba(255, 255, 0, 0.7);
 }
 
 #wheel:hover {
@@ -85,10 +90,12 @@ h1 {
 
 .pointer-background {
     position: absolute;
-    top: -25px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
+    width: 60%;
+    height: auto;
 }
 
 .triangle-fill {
@@ -189,4 +196,41 @@ h1 {
     width: 24px;
     height: 24px;
     border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        margin-bottom: 2rem;
+    }
+
+    .winning-selection {
+        font-size: 80px;
+        min-width: 300px;
+        padding: 20px;
+    }
+
+    #spinButton {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+
+    .history-container {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .winning-selection {
+        font-size: 60px;
+        min-width: 250px;
+    }
 }
