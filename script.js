@@ -5,9 +5,12 @@ class WheelSpinner {
         this.spinButton = document.getElementById('spinButton');
         this.isSpinning = false;
         this.currentRotation = 0;
-        this.sections = ['Julian', 'Spin Again', 'Spin Again', 'Austin', 'Spin Again', 'Spin Again'];
+        this.sections = ['Julian', 'Spin Again', 'Julian', 'Austin', 'Spin Again', 'Austin'];
         this.spinHistory = [];
         this.maxHistory = 10;
+        
+        // Add base URL detection
+        this.baseUrl = window.location.hostname === 'salixlabs.github.io' ? '/wheelspin/' : './';
         
         this.init();
     }
@@ -82,7 +85,7 @@ class WheelSpinner {
             
             if (entry.result === 'Austin' || entry.result === 'Julian') {
                 const img = document.createElement('img');
-                img.src = `/wheelspin/Assets/${entry.result.toLowerCase()}-baby.png`;
+                img.src = `${this.baseUrl}Assets/${entry.result.toLowerCase()}-baby.png`;
                 li.appendChild(img);
             }
             
@@ -155,7 +158,7 @@ class WheelSpinner {
                 if (winningText === 'Austin' || winningText === 'Julian') {
                     // Create and add the image
                     const img = document.createElement('img');
-                    img.src = `/wheelspin/Assets/${winningText.toLowerCase()}-baby.png`;
+                    img.src = `${this.baseUrl}Assets/${winningText.toLowerCase()}-baby.png`;
                     img.style.width = '200px';
                     img.style.height = '200px';
                     winningDisplay.textContent = '';  // Clear any existing content

@@ -71,10 +71,10 @@ h1 {
 
 .wheel-section-1 { fill: #4BC0C0; }  /* turquoise */
 .wheel-section-2 { fill: #FFCE56; }  /* golden yellow */
-.wheel-section-3 { fill: #FFCE56; }  /* golden yellow */
+.wheel-section-3 { fill: #4BC0C0; }  /* golden yellow */
 .wheel-section-4 { fill: #9966FF; }  /* purple */
 .wheel-section-5 { fill: #FF9F40; }  /* orange */
-.wheel-section-6 { fill: #FF9F40; }  /* orange */
+.wheel-section-6 { fill: #9966FF; }  /* orange */
 
 .pointer-background {
     position: absolute;

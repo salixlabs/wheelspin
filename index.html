@@ -20,13 +20,20 @@
         </div>
         <div id="winningSelection" class="winning-selection"></div>
         <button id="spinButton">Spin the Wheel!</button>
-        <img id="austinIcon" src="/wheelspin/Assets/austin-baby.png" style="display: none;" width="32" height="32" alt="Austin Baby">
-        <img id="julianIcon" src="/wheelspin/Assets/julian-baby.png" style="display: none;" width="32" height="32" alt="Julian Baby">
+        <img id="austinIcon" src="" style="display: none;" width="32" height="32" alt="Austin Baby">
+        <img id="julianIcon" src="" style="display: none;" width="32" height="32" alt="Julian Baby">
         <div class="history-container">
             <h2>Previous Spins</h2>
             <ul id="spinHistory" class="spin-history"></ul>
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        window.baseUrl = window.location.hostname === 'salixlabs.github.io' ? '/wheelspin/' : './';
+    </script>
+    <script>
+        document.getElementById('austinIcon').src = `${window.baseUrl}Assets/austin-baby.png`;
+        document.getElementById('julianIcon').src = `${window.baseUrl}Assets/julian-baby.png`;
+    </script>
 </body>
 </html> 
