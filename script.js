@@ -12,6 +12,10 @@ class WheelSpinner {
         // Add base URL detection
         this.baseUrl = window.location.hostname === 'salixlabs.github.io' ? '/wheelspin/' : './';
         
+        // Set initial triangle color to match spin button
+        const triangleFill = document.querySelector('.triangle-fill');
+        triangleFill.style.fill = '#ffff00';
+        
         this.init();
     }
 

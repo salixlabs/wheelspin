@@ -17,16 +17,16 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     background-color: #2C3E50; /* Modern slate blue-gray */
-    padding-top: 2rem;
 }
 
 .container {
     text-align: center;
-    max-height: calc(100vh - 4rem);
+    max-height: 100vh;
     overflow-y: auto;
-    padding: 1rem;
+    padding: 2rem 1rem 1rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-padding-top: 0;
 }
 
 .container::-webkit-scrollbar {
@@ -48,6 +48,12 @@ h1 {
 #wheel {
     position: relative;
     z-index: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));  /* Same glow as button and triangle */
+    transition: filter 0.3s;  /* Smooth transition for glow changes */
+}
+
+#wheel:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.7));  /* Enhanced glow on hover */
 }
 
 #spinButton {
@@ -85,7 +91,13 @@ h1 {
 }
 
 .triangle-fill {
-    filter: brightness(1.0);  /* Make colors brighter */
+    fill: #ffff00;  /* Same neon yellow as the spin button */
+    filter: brightness(1.0) drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
+    transition: filter 0.3s;  /* Smooth transition for glow changes */
+}
+
+.pointer-background:hover .triangle-fill {
+    filter: brightness(1.0) drop-shadow(0 0 20px rgba(255, 255, 0, 0.7));  /* Enhanced glow on hover */
 }
 
 .pointer {
