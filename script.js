@@ -82,7 +82,7 @@ class WheelSpinner {
             
             if (entry.result === 'Austin' || entry.result === 'Julian') {
                 const img = document.createElement('img');
-                img.src = `assets/${entry.result.toLowerCase()}-baby.png`;
+                img.src = `./assets/${entry.result.toLowerCase()}-baby.png`;
                 li.appendChild(img);
             }
             
@@ -155,7 +155,7 @@ class WheelSpinner {
                 if (winningText === 'Austin' || winningText === 'Julian') {
                     // Create and add the image
                     const img = document.createElement('img');
-                    img.src = `assets/${winningText.toLowerCase()}-baby.png`;
+                    img.src = `./assets/${winningText.toLowerCase()}-baby.png`;
                     img.style.width = '200px';
                     img.style.height = '200px';
                     winningDisplay.textContent = '';  // Clear any existing content
