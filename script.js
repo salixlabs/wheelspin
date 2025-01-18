@@ -156,6 +156,24 @@ class WheelSpinner {
                 const winningText = this.sections[normalizedSection];
                 console.log('Winning text:', winningText);
                 
+                // Get the winning color
+                const tempDiv = document.createElement('div');
+                tempDiv.className = `wheel-section-${normalizedSection + 1}`;
+                document.body.appendChild(tempDiv);
+                const color = window.getComputedStyle(tempDiv).fill;
+                document.body.removeChild(tempDiv);
+                
+                // Convert the RGB color to RGBA with opacity
+                const rgbaColor = color.replace('rgb', 'rgba').replace(')', ', 0.5)');
+                const rgbaColorHover = color.replace('rgb', 'rgba').replace(')', ', 0.7)');
+                
+                // Update wheel glow
+                const wheel = document.getElementById('wheel');
+                wheel.style.filter = `drop-shadow(0 0 10px ${rgbaColor})`;
+                
+                // Update wheel hover state using CSS custom property
+                wheel.style.setProperty('--hover-glow-color', rgbaColorHover);
+                
                 winningDisplay.style.color = color;
                 
                 // Check if Austin was selected

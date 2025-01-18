@@ -48,12 +48,13 @@ h1 {
 #wheel {
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));  /* Same glow as button and triangle */
-    transition: filter 0.3s;  /* Smooth transition for glow changes */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));  /* Initial yellow glow */
+    transition: filter 0.5s;  /* Smooth transition for glow changes */
+    --hover-glow-color: rgba(255, 255, 0, 0.7);  /* Default yellow */
 }
 
 #wheel:hover {
-    filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.7));  /* Enhanced glow on hover */
+    filter: drop-shadow(0 0 20px var(--hover-glow-color));
 }
 
 #spinButton {
@@ -92,12 +93,18 @@ h1 {
 
 .triangle-fill {
     fill: #ffff00;  /* Same neon yellow as the spin button */
-    filter: brightness(1.0) drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
-    transition: filter 0.3s;  /* Smooth transition for glow changes */
+    filter: drop-shadow(0 -5px 5px rgba(255, 255, 0, 0.5))  /* Top glow */
+           drop-shadow(5px 0 5px rgba(255, 255, 0, 0.5))   /* Right glow */
+           drop-shadow(0 5px 5px rgba(255, 255, 0, 0.5))   /* Bottom glow */
+           drop-shadow(-5px 0 5px rgba(255, 255, 0, 0.5));  /* Left glow */
+    transition: filter 0.3s;
 }
 
 .pointer-background:hover .triangle-fill {
-    filter: brightness(1.0) drop-shadow(0 0 20px rgba(255, 255, 0, 0.7));  /* Enhanced glow on hover */
+    filter: drop-shadow(0 -7px 7px rgba(255, 255, 0, 0.7))  /* Top glow */
+           drop-shadow(7px 0 7px rgba(255, 255, 0, 0.7))   /* Right glow */
+           drop-shadow(0 7px 7px rgba(255, 255, 0, 0.7))   /* Bottom glow */
+           drop-shadow(-7px 0 7px rgba(255, 255, 0, 0.7));  /* Left glow */
 }
 
 .pointer {
