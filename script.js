@@ -16,6 +16,12 @@ class WheelSpinner {
         const triangleFill = document.querySelector('.triangle-fill');
         triangleFill.style.fill = '#ffff00';
         
+        this.spinSound = document.getElementById('spinSound');
+        this.stopSoundSpinAgain = document.getElementById('stopSoundSpinAgain');
+        this.stopSoundAustin = document.getElementById('stopSoundAustin');
+        this.stopSoundJulian = document.getElementById('stopSoundJulian');
+        this.spinSound.playbackRate = 1.0;  // Normal speed to start
+        
         this.init();
     }
 
@@ -114,6 +120,10 @@ class WheelSpinner {
     spin() {
         if (this.isSpinning) return;
         
+        // Start the spinning sound once
+        this.spinSound.currentTime = 0;
+        this.spinSound.play();
+        
         // Clear any previous winning selection
         const winningDisplay = document.getElementById('winningSelection');
         winningDisplay.textContent = '';
@@ -160,10 +170,28 @@ class WheelSpinner {
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
+                // Stop the spin sound
+                this.spinSound.pause();
+                this.spinSound.currentTime = 0;
+                
+                const winningText = this.sections[normalizedSection];
+                
+                // Play the appropriate stop sound
+                if (winningText === 'Austin') {
+                    this.stopSoundAustin.currentTime = 0;
+                    this.stopSoundAustin.play();
+                } else if (winningText === 'Julian') {
+                    this.stopSoundJulian.currentTime = 0;
+                    this.stopSoundJulian.play();
+                } else {
+                    // For "Spin Again"
+                    this.stopSoundSpinAgain.currentTime = 0;
+                    this.stopSoundSpinAgain.play();
+                }
+                
                 this.isSpinning = false;
                 this.spinButton.disabled = false;
                 
-                const winningText = this.sections[normalizedSection];
                 console.log('Winning text:', winningText);
                 
                 // Get the winning color
